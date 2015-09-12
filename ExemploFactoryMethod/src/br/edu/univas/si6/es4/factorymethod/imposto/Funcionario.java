@@ -5,8 +5,12 @@ public abstract class Funcionario {
 	private String nome;
 
 	public double salarioLiquido() {
-		throw new RuntimeException("Não implementado");
+		double impostos = getCalculadorImposto().calcularImposto();
+		double sl = salarioBruto() - impostos;
+		return sl;
 	}
+	
+	protected abstract CalculadorImposto getCalculadorImposto();
 
 	public abstract double salarioBruto();
 

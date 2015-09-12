@@ -26,4 +26,9 @@ public class Mensalista extends Funcionario {
 		this.horasExtras = horasExtras;
 	}
 
+	@Override
+	protected CalculadorImposto getCalculadorImposto() {
+		return new ImpostoMensalista(salarioMensal, horasExtras);
+	}
+
 }
